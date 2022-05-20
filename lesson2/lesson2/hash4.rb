@@ -1,5 +1,5 @@
 
-alphabet = "abcdefghijklmnopqrstuvwxyz"
+alphabet = ("a".."z").to_a
 vowel = "aeiouy"
 vowels = vowel.split('') #преобраз в массив
 

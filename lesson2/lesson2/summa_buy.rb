@@ -16,7 +16,10 @@ end
 
  cart.each do |name, hs|
   summa += hs['price'] * hs['quanity']
+  sum = hs['price'] * hs['quanity']
+  puts "сумма за отдельный товар #{sum}"
 end
 
   puts cart
   puts "Сумма в корзине состовляет #{summa}"
+

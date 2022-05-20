@@ -1,5 +1,5 @@
 
-arr = [0,1]
+arr = [0, 1]
 
 loop do
   next_arr = arr[-1] + arr[-2] 
