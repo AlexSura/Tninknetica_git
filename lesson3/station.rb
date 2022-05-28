@@ -28,7 +28,8 @@ end
 
 
 class Route
-  attr_accessor :stations, :first_station, :last_station 
+  attr_reader :stations 
+  #attr_accessor :stations, :first_station, :last_station 
 
   def initialize(first_station, last_station)     #создаем маршрут с указанение начальной и конечной станции
     @stations = [first_station, last_station]
@@ -48,8 +49,8 @@ end
 
 
 class Train 
-  attr_accessor :speed, :wagons, :number, :station, :route
-  attr_reader :type
+  #attr_accessor :speed, :wagons, :number, :station, :route
+  attr_reader :type, :number, :route
 
   def initialize(number, type, wagons)            #создание поезда с указанными атрибутами, поезд при создании имеет нулевую скорость
     @number = number
