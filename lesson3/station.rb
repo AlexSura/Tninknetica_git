@@ -13,21 +13,8 @@ class Station
   end
  
   def list_trains_types(type)                            #список по типу поездов
-    if trains.each do |train|
-      if train.type == 'pas'
-        @trains_pas << train.number
-        @trains_pas.uniq!
-      elsif
-        train.type == 'gruz'
-        @trains_gruz << train.number
-        @trains_gruz.uniq!
-      else
-        puts "станция пуста, или неправильно указан тип поезда"
-      end
-    end
-  end
-    puts "на станции #{name} #{@trains_pas.size} пассажирский поезд(a)"
-    puts "на станции #{name} #{@trains_gruz.size} грузовой поезд(a)"
+    @trains_pas = trains.select{|item| item.type == 'pas'} 
+    @trains_gruz = trains.select{|item| item.type == 'gruz'}
   end
 
   def train_dispatch(train)                        #отправка поезда одного за раз указать номер поезда
@@ -114,20 +101,20 @@ class Train
   def next_station
     if @current_station!= route.stations.last
       puts "следующая станция #{route.stations[self.indx + 1].name}"
-      return next_station = route.stations[self.indx + 1]
+      route.stations[self.indx + 1]
     else
-      route.stations.last
       puts "конечная станция #{route.stations.last.name}"
+      route.stations.last
     end
   end
  
   def prev_station
     if @current_station!= route.stations.first
       puts "Предыдущая станция #{route.stations[self.indx - 1].name}"
-      return prev_station = route.stations[self.indx - 1]
+      route.stations[self.indx - 1]
     else
-      route.stations.first
       puts "Стартовая станция маршрута #{route.stations.first.name}"
+      route.stations.first
     end
   end
 
@@ -169,15 +156,14 @@ train1 = Train.new(100, 'gruz', 20)
 train2 = Train.new(200, 'gruz', 30)
 train3 = Train.new(300, 'pas', 15)
 train4 = Train.new(400, 'pas', 17)
+train5 = Train.new(500, 'pas', 17)
 
 
 station0.train_reception(train1)
 station0.train_reception(train2)
 station0.train_reception(train3)
+station0.train_reception(train5)
 
-station0.list_trains_types('gruz')
-station0.list_trains_types('pas')
-station0.list_trains
 puts '8' * 80
 station0.list_trains
 station0.train_dispatch(train2)
@@ -206,7 +192,7 @@ train4.prev_station
 train4.move_forward_station
 train4.move_forward_station
 station5.list_trains
-station3.list_trains #удаляет поезд
+station3.list_trains
 train4.move_back_station
 station3.list_trains 
 train4.move_back_station
@@ -220,5 +206,12 @@ train4.prev_station
 train4.move_forward_station
 train4.next_station
 train4.prev_station
-station5.list_trains_types('pas')
+puts "8"*80
+puts "8"*80
 
+station0.list_trains_types('pas')
+station0.list_trains_types('gruz')
+station0.list_trains
+puts '*'*80
+station5.list_trains_types('pas')
+station5.list_trains
