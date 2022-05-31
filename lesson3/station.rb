@@ -13,8 +13,7 @@ class Station
   end
  
   def list_trains_types(type)                            #список по типу поездов
-    @trains_pas = trains.select{|item| item.type == 'pas'} 
-    @trains_gruz = trains.select{|item| item.type == 'gruz'}
+    trains.select{|item| item.type == type} 
   end
 
   def train_dispatch(train)                        #отправка поезда одного за раз указать номер поезда
@@ -213,5 +212,5 @@ station0.list_trains_types('pas')
 station0.list_trains_types('gruz')
 station0.list_trains
 puts '*'*80
-station5.list_trains_types('pas')
+puts station5.list_trains_types('pas').inspect
 station5.list_trains
