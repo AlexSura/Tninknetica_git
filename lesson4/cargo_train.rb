@@ -10,7 +10,7 @@ class CargoTrain < Train
     if wagon.instance_of?(CargoWagons)
       @wagons << wagon
     else
-      "данный вагон является пассажирским"
+      "данный вагон не является грузовым"
     end
   end
 
