@@ -3,16 +3,27 @@ class Interface
   attr_reader :stations, :route, :trains
   
   def initialize 
+    puts "0 - выход"
+    puts "1 - создать станцию"
+    puts "2 - создать поезд "
+    puts "3 - создать маршрут"
+    puts "4 - назначить маршрут поезду "
+    puts "5 - добавить вагон к поезду"
+    puts "6 - отцеплять вагон от поезда"
+    puts "7 - переместить поезд по маршруту вперед назад"
+    puts "8 - просматривать список станций и список поездов на станции"
+
     @stations = []
     @trains = []
     @route = []
   end
 
+  private
+
   def new_station
     puts"дайте имя станции "
     name = gets.chomp
     @stations << Station.new(name)
-    puts @stations.inspect
     puts " станция #{name} cоздана"
   end
 
@@ -138,7 +149,45 @@ class Interface
     station.list_trains
     puts station.name
     end
-  end 
+  end
+
+  public def call 
+    loop do
+    print "укажите номер : "
+    selected = gets.chomp.to_i
+  
+    case selected
+  
+    when 0
+    break
+
+    when 1
+    new_station
+
+    when 2
+    new_train
+  
+    when 3
+    new_route
+
+    when 4
+    give_route
+
+    when 5
+    add_wagons    
+  
+    when 6
+    delete_wagons
+
+    when 7
+    move_train
+
+    when 8
+    station_train
+    end
+  end
+ 
+end
 end
 
   
