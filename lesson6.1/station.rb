@@ -9,7 +9,7 @@ class Station
     @trains = []
     @trains_pas = []
     @trains_gruz = []
-    validate!
+    validate!(name)
     #validate_station! 
     @@stations << self 
   end
