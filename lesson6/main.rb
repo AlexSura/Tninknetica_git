@@ -1,5 +1,5 @@
 require_relative 'instance_counter'
-require_relative 'module_exception'
+require_relative 'validate'
 require_relative 'manufacturer'
 require_relative 'wagon'
 require_relative 'train'

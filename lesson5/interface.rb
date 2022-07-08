@@ -21,15 +21,21 @@ class Interface
   private
 
   def new_station
+    begin
     puts"дайте имя станции "
     name = gets.chomp
     @stations << Station.new(name)
+  rescue RuntimeError
+    puts 'неверно указано имя станции'
+    retry
+  end
     puts " станция #{name} cоздана"
   end
 
   def new_train
+    begin
     puts "yкажите номер поезда : "
-    number = gets.chomp.to_i
+    number = gets.chomp.to_s
     puts "выберите тип поезда 1 - рузовой 2 -пассажирский"
     selected = gets.chomp.to_i
     
@@ -42,6 +48,10 @@ class Interface
     else
       puts " введите ип 1 - грузовой или 2 - пассажирски "
     end
+  rescue RuntimeError
+    puts 'неверное введен номер поезда'
+    retry
+  end
   end
 
   def new_route
