@@ -21,7 +21,7 @@ class Train
     @@trains[number]
   end
 
- def format_t(&block)
+ def format_list_wagon(&block)
     yield
   end
  

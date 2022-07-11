@@ -12,6 +12,8 @@ class Interface
     puts "6 - отцеплять вагон от поезда"
     puts "7 - переместить поезд по маршруту вперед назад"
     puts "8 - просматривать список станций и список поездов на станции"
+    puts "9 - Выводить список поездов на станции"
+    puts "10 -Выводить список вагонов у поезда"
 
     @trains = []
     @route = []
@@ -177,16 +179,19 @@ class Interface
       puts 'укажите номер поезда'
       number = gets.chomp.to_i
       if trains[number].instance_of?(CargoTrain) 
-        trains[number].format_t{ trains[number].wagons.each {|x| puts "вагон #{x.number} #{x.class.name}  #{x.free_volume}"}}
+        trains[number].format_list_wagon{ trains[number].wagons.each {|x| puts "вагон #{x.number} #{x.class.name}  #{x.free_volume}"}}
       else
-        trains[number].format_t{ trains[number].wagons.each {|x| puts "вагон #{x.number} #{x.class.name} свободные места #{x.free_places}"}}
+        trains[number].format_list_wagon{ trains[number].wagons.each {|x| puts "вагон #{x.number} #{x.class.name} свободные места #{x.free_places}"}}
     end
   end
 
   def train_list_station
-    Station.all.each do |station|
-     puts station.name
-     station.trains.each{|train| puts " #{train.number} : #{train.class.name} : #{train.wagons.length} : "}
+    Station.format_list_train {
+      Station.all.each do |station|
+        puts station.name
+        station.trains.each{ |train| puts "#{train.number} : #{train.class.name} : #{train.wagons.length} : "}
+        end
+      }    
     end
   end
 
@@ -233,5 +238,11 @@ class Interface
     end
     end
   end
-end
 
+
+
+=begin
+    Station.all.each do |station|
+     puts station.name
+     station.trains.each{|train| puts " #{train.number} : #{train.class.name} : #{train.wagons.length} : "}
+=end

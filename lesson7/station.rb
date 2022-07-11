@@ -30,7 +30,7 @@ class Station
     trains.each{ |train| puts "на станции #{@name} поезд #{train.number}" }
   end
 
-  def format_list(&block)
+  def self.format_list_train(&block)
    yield
   end 
     # написать метод, который принимает блок и проходит по всем поездам на станции,

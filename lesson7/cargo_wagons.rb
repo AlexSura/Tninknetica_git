@@ -5,7 +5,6 @@ class CargoWagons < Wagon
   def initialize(volume)
     super
     @volume = volume
-    @loading_volume = 0
     @free_volume = volume
   end
 
@@ -16,10 +15,6 @@ class CargoWagons < Wagon
     else
       puts 'разделите на два вагона'
     end
-  end
-
-  def loading_volume
-      @loading_volume
   end
 
   def free_volume
