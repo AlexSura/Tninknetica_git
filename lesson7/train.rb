@@ -22,7 +22,7 @@ class Train
   end
 
  def format_list_wagon(&block)
-    yield
+    @wagons.each{|wagon| block.call(wagon)}
   end
  
   protected def stop
