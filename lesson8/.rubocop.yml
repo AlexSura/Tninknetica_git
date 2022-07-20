@@ -1,0 +1,40 @@
+AllCops:
+  #Include gemsspec and Rakefile
+  Include:
+    - 'app/**/*.rb'
+    - 'config/**/*.rb'
+    - 'lib/**/*.rb'
+    - 'lib/**/*.rake'
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/**/*'
+    - 'db/*.rb'
+    - 'bin/**/*'
+  
+  DisplayCopNames: true
+  StyleGuideCopsOnly: false
+
+  Style/Documentation:
+    Exclude:
+      - 'lib/**/version.rb'
+
+  Metrics/LineLength:
+    Max: 100
+
+  Metrics/MethodLength:
+    Max: 30
+
+  Metrics/AbcSize: 
+    Max: 20
+
+  Style/BarePercentLiterals:
+    Enable: false
+
+  Style/CommentAnnotation:
+    Enable: false
+
+  Style/RaiseArgs:
+    Enable: false
+
+  Style/StringLiterals:
+    Enable: false
