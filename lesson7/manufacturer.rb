@@ -1,7 +1,5 @@
-module Manufacturer
-  attr_accessor :name_manufacturer
-  def name_manufacturer(name)
-    @manufacturer_name = name
-  end
-end
+# frozen_string_literal: true
 
+module Manufacturer
+  attr_reader :name_manufacturer
+end

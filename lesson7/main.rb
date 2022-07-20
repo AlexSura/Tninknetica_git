@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'instance_counter'
 require_relative 'validate'
 require_relative 'manufacturer'
@@ -11,6 +13,6 @@ require_relative 'passenger_wagons'
 require_relative 'cargo_wagons'
 require_relative 'interface'
 
+IneterfaceMenu.new
 Interface.new.call
-
-
+InterfaceAction.new

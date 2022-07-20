@@ -1,6 +1,6 @@
+# frozen_string_literal: true
 
 class CargoTrain < Train
-
   def initialize(number)
     super
     puts " Грузовой поезд #{number} собран и готов к движенмю "
@@ -10,12 +10,12 @@ class CargoTrain < Train
     if wagon.instance_of?(CargoWagons)
       @wagons << wagon
     else
-      "данный вагон не является грузовым"
+      'данный вагон не является грузовым'
     end
   end
 
   def deleted_wagon
     @wagons.delete_last
-    puts "у поезда #{self.number} отцеплен вагон"
+    puts "у поезда #{number} отцеплен вагон"
   end
 end
